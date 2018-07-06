@@ -5,7 +5,7 @@ To install the package "Equitable":
 
 library(githubinstall)
 
-githubinstall("celphin/Equitable-Project/Equitble")
+githubinstall("celphin/Equitable-Project/Equitable")
 
 The files Short Examples.R  and Examples.R show how the tranfroma can be used on 2D data sets and allows you to make your noisy NA filled data sets to experiment with the transform (trensformE in the package).
 
