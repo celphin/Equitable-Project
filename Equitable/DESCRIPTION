@@ -1,0 +1,12 @@
+Package: Equitable
+Type: Package
+Title: Equitable Transformation and associated summary information
+Version: 1.0
+Date: 2018-07-03
+Authors@R: c(person("Cassandra", "Elphinstone", role = c("aut", "cre"),
+                     email = "cassandra.elphinstone@shaw.ca"))
+Author: Cassandra Elphinstone [aut, cre]
+Maintainer: Cassandra Elphinstone <cassandra.elphinstone@shaw.ca>
+Depends: R (>= 3.1.0), nlme
+Description: Elphinstone, C. and Henry, G. (submitted to Ecology, 2018) show the multipurpose uses for the equitable transform.Functions useful for analysing two dimensional data sets are included in this package. A two dimensional data set (d) is transformed via Td<-transformE(d) and a variety of matrices associated with the equitable transform is placed in Td. A signal data set can be made via d<-eg4(2,2) and noise can be added to make a noisy 2D data set (d_noise) in a variety of ways as seen in the R script Short Examples.R. If Td and Td_noise are the results from running transformE then plotsummary(Td_noise,Td), plotsummary(Td) and plotsummary(Td_noise) summarize and plot information about the two transformations.
+License: GPL (>= 2)
