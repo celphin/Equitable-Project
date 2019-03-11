@@ -9,8 +9,8 @@ library(devtools)
 
 install_github("celphin/Equitable-Project/Equitable")
 
-The file Equitable_0.1.0 is a pdf containing a manual of the basic fucntions used for constructing and equitable transform from a 2 dimensional data set. For each function, examples are given to illustrate the use fo the function. 
+The file Equitable_0.1.0 is a pdf containing a manual of the basic fucntions used for constructing an equitable transform from a 2 dimensional data set. For each function, examples are given to illustrate the use of the function. 
 
-The files Short Examples.R  and Examples.R in Equitable-Project show how the tranfroma can be used on 2D data sets. You can use your own real data or make simulted data. Short Examples.R shows how you can make your own noisy NA filled data sets in order to experiment with the transform (using the function transformE in the package).
+The files Short Examples.R  and Examples.R in Equitable-Project show how the tranfrom can be used on 2D data sets. You can use your own real data or make simulted data. Short Examples.R shows how you can make your own noisy NA filled data sets in order to experiment with the transform (using the function transformE in the package).
 
 
