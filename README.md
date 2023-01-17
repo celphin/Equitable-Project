@@ -9,9 +9,19 @@ plotsummary(Td_noise) summarize and plot information about the two transformatio
 
 
 To install the package "Equitable", first install the package devtools. Then in R use:
-library(devtools)
-install_github("celphin/Equitable")
-library(Equitable)
+
+    install.packages("devtools")
+
+    library(devtools)
+
+    install_github("celphin/Equitable") #to install the package
+
+    library(Equitable) # to load the package
+
+    ??Equitable #for more information on the functions
+
+    eg4(1,1) # to see one example dataset
+
 
 
 Some suporting files are found in: celphin/Equitable-Project
