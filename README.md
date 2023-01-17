@@ -1,6 +1,6 @@
-# Equitable Package  related to the Equitable Transform.
+# Manual and examples for the R Equitable Package 
 
-Elphinstone, C. and Henry, G. (submitted to Ecosphere, 2019) show the multipurpose uses for the equitable transform. Functions useful 
+Elphinstone, C. and Henry, G. (Ecosphere, 2019) show the multipurpose uses for the equitable transform. Functions useful 
 for analysing two dimensional data sets are included in this package. A two dimensional data set (d) is transformed via Td<-transformE(d) 
 and a variety of matrices associated with the equitable transform is placed in Td. An example signal data set can be made via d<-eg4(2,2) 
 (or other "eg?" type functions: see manual) and noise can be added to make a noisy 2D data set (d_noise) in a variety of ways as seen in the 
@@ -22,9 +22,9 @@ To install the package "Equitable", first install the package devtools. Then in 
 
     eg4(1,1) # to see one example dataset
 
+Code for the package: https://github.com/celphin/Equitable
 
-
-Some suporting files are found in: celphin/Equitable-Project
+Supporting files shown here:
 
 celphin/Equitable-Project/Equitable_Manual.pdf is a pdf containing a manual of the basic functions used for constructing an equitable transform from a 2 dimensional data set. 
 For each function, examples are given to illustrate the use of the function.
