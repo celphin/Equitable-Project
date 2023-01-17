@@ -1,8 +1,10 @@
-
-
+# libraries
 library(Equitable)
 library("Hmisc")
 library("SDMTools")
+
+#------------------------------
+# general notes
 
 #output from the TransformE function  Td<-transformE(d, Ave=TRUE)
 #summary(Td)         
@@ -29,6 +31,8 @@ library("SDMTools")
 # ET.x       ET.xsd    ET.N   ET.Es ET.Eb   ET.Ep             : masked matrices included maskedslope=Es  interceprt=Eb prob= Ep
 # Ave.ET.x   Ave.ET.xsd Ave.ET.N Ave.ET.Es Ave.ET.Eb   Ave.ET.Ep transform based on only average column: masked matrices included
 
+#-------------------------------------
+# Examples
 
 #d is two dimensional data set
 #for example 
@@ -51,16 +55,11 @@ d<-eg7(10,15)         # 150 and 150     #example 7: like 5 but u is 0
 d<-eg8(5,5)         # 150 and 150     #example 8: normally distributed random numbers for f g and u (Equitable system completely described by f,g,u)
 # 2N+M points describe NxM system
 
-
-
-
-
 #if d is a two dimensional separable signal and you want to add noise to it: 
 d<-eg4(10,5)
 #normal noise run
 Td<-transformE(d, Ave=TRUE)   #it is useful to construct the signal trnasform to compare later with the noisy transform
 runstats(Td)                  #stats should show the transform correspond to the original data if the system was separable
-
 
 sdd<-sd(d,na.rm=TRUE)         #find the std dev of the overall signal and add normally distributed noise
 # that has a std. dev that is some fraction (fac) of this signal std dev 
@@ -72,9 +71,6 @@ Td_noise<-transformE(d_noise, Ave=TRUE)   #it is useful to construct the signal 
 runstats(Td_noise)                  #stats should show the transform correspond to the original data if the system was separable
 runstatsNS(Td,Td_noise) 
 
-
-
-
 #to shorten the above, use:   example 4 resolution of 10xRows,5XCols normally distributed noise
 Td<-Tnorm(rmult=10,cmult=5,FUN=eg4,fac=1/2,noise=FALSE)   #constructs 2d data signal data and transform in Td along with stats
 #change fac to add more or less this proportion of the signal as normally distributed noise
@@ -82,7 +78,6 @@ Td_noise<-Tnorm(rmult=10,cmult=5,FUN=eg4,fac=1/2)       # noisy data and Transfo
                                               # noisy Transform compared to signal  stats                                     
 #the above code creates tranformations of both a signal data set and a "noisy data set"
 plotsummary(Td_noise,Td)
-
 
 d<-eg2(10,5)
 #normal noise run
@@ -101,7 +96,6 @@ d<-eg4(10,5)
 Td<-transformE(d, Ave=TRUE)   #it is useful to construct the signal trnasform to compare later with the noisy transform
 runstats(Td)     
 plotsummary(Td)
-
 
 d<-eg5(10,5)
 #normal noise run
@@ -139,10 +133,9 @@ plotsummary(Td)
 #The following plot functions can be used : multiple plots sre created dependent on flags (note remove signal=Td$smat option if no signal to compare with is possible)
 #the plots below can be run for any transformed data set
 plotsome(Td_noise, signal=Td$smat,indiv=TRUE,of=TRUE,errb=TRUE)     #images and contours of Equitable transform
-
-
 plotsome(Td_noise,signal=Td$smat,images=FALSE,versus=TRUE,of=TRUE,lf=TRUE)  #compares Original data, Least squares and Equitable Transforms to signal
 plotsome(Td_noise,images=FALSE,versus=TRUE,of=TRUE,lf=TRUE)  #compares Original data, Least squares and Equitable Tranforms to original if no signal available
+
 #setting of or lf to FALSE will eliminate plots of orignal and least squres data respectively
 plotsome(Td_noise,signal=Td$smat,images=FALSE,columns=TRUE,of=TRUE,lf=TRUE) #plots all columns together for original, least squares,signal and equitable
 plotsome(Td_noise,images=FALSE,columns=TRUE,of=TRUE,lf=TRUE) #if no signal is available
@@ -150,14 +143,11 @@ plotsome(Td_noise,transpose=TRUE,images=FALSE,columns=TRUE,of=TRUE,lf=TRUE) #wit
 plotsome(Td_noise,signal=Td$smat,transpose=TRUE,images=FALSE,columns=TRUE,of=TRUE,lf=TRUE) # show 
 plotsome(Td_noise,images=FALSE, xvsref=ncol(Td_noise$smat) )  #plot all columns from Ave contructed transform versus the Average (reference column) 
 plotsome(Td,images=FALSE, xvsref=ncol(Td$smat) ) #plot all Signal columns from Ave contructed transform versus the Average (reference column) 
-
 plotsquares(Td_noise, signal=Td,columns=TRUE,of=TRUE) #all columns plotted together
 plotsquares(Td_noise, signal=Td,transpose=TRUE,images=FALSE,columns=TRUE,of=TRUE) #all rows plotted together
 plotsquares(Td_noise,images=FALSE,indiv=TRUE,of=FALSE,errb=TRUE,stderror=TRUE,slimits=c(0,3) ,blimits=c(-10,+10))#std error of equitable slopes and interceprs
 plotsquares(Td_noise,images=FALSE,indiv=TRUE,of=TRUE,errb=TRUE,stderror=TRUE,slimits=c(0,3) ,blimits=c(-10,+10)) #with least sq, fits
-
 plotsquares(Td_noise,signal=Td,images=FALSE,indiv=TRUE,of=TRUE,errb=TRUE,stderror=TRUE,lf=TRUE,slimits=c(0,3) ,blimits=c(-10,+10)) #with signal
-
 plotsquares(Td_noise,signal=Td,images=FALSE,indiv=TRUE,of=TRUE,ef=FALSE,errb=TRUE,lf=TRUE,slimits=c(0,3) ,blimits=c(-10,+10)) #leaast squares with std error
 #plotting the errors shows which columns are the least equitable
 
@@ -167,7 +157,6 @@ plotsquares(Td_noise,signal=Td,images=FALSE,indiv=TRUE,of=TRUE,ef=FALSE,errb=TRU
 plotsome(Td_noise,signal=Td$smat,images=FALSE,indiv=TRUE,of=TRUE,lf=TRUE ) #plots indiviual columns along with signal, least squares fit and original
 plotsome(Td_noise,signal=Td$smat,images=FALSE,indiv=TRUE,of=TRUE,errb=TRUE )#plots individual columns of Equitable Transform with std dev at each point(with original data and signal)
 plotsome(Td_noise,signal=Td$smat,images=FALSE,indiv=TRUE,of=TRUE,errb=TRUE ,stderror=TRUE)#plots individual columns of Equitable Transform with std error of mean at each point
-
 plotsome(Td_noise,signal=Td$smat,images=FALSE,indiv=TRUE,of=TRUE,errb=TRUE )#plots individual columns of Equitable Transform with std dev at each point(with original data and signal)
 plotsome(Td_noise,signal=Td$smat,images=FALSE,indiv=TRUE,of=TRUE,errb=TRUE ,stderror=TRUE)#plots individual columns of Equitable Transform with std error of mean at each point
 
